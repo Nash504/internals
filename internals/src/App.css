@@ -5,19 +5,6 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -34,7 +21,7 @@
 }
 
 .card {
-  background-color: #fff;
+  background-color: #364246;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -45,11 +32,26 @@
 }
 
 .card p {
-  color: #333;
+  color: #ffffff;
   font-size: 16px;
 }
 
 .card b {
   font-weight: bold;
-  color: #555;
+  color: #ffffff;
+}
+button {
+  margin-top: 1rem;
+  background-color: black;
+  border: 2px solid #ceff48;
+  color: #ceff48;
+}
+button:hover {
+  box-shadow: 0 0 6px 2px #ceff48;
+}
+.file-upload {
+  margin-top: 1rem;
+  background-color: black;
+  border: 2px solid #ceff48;
+  color: #ceff48;
 }

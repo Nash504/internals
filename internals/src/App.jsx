@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
   const [file, setFile] = useState(null);
   const [, setContent] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null); // State to store the response from Gemini
 
   const HandleFile = (e) => {
@@ -13,6 +14,7 @@ function App() {
   };
 
   const Read = () => {
+    setLoading(true);
     pdfToText(file)
       .then((data) => {
         setContent(data); // Store the content of the PDF
@@ -24,12 +26,16 @@ function App() {
       })
       .catch((err) => {
         console.log("Error fetching response:", err); // Handle errors from GetResponse
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   return (
     <div>
       <div
+        className="file-upload"
         style={{
           border: "1px solid #ccc",
           padding: "10px",
@@ -38,7 +44,9 @@ function App() {
       >
         <input type="file" onChange={HandleFile}></input>
       </div>
-      <button onClick={Read}>Submit</button>
+      <button disabled={loading} onClick={Read}>
+        {loading ? "Loading..." : "Summarize"}
+      </button>
       <div className="card">
         {response && (
           <p>
