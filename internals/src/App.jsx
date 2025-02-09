@@ -1,6 +1,7 @@
 import { useState } from "react";
 import pdfToText from "react-pdftotext";
-import GetResponse from "./components/gemini"; // Import the GetResponse function
+import GetResponse from "./components/gemini";
+import { ToastContainer, toast } from "react-toastify"; // Import the GetResponse function
 import "./App.css";
 
 function App() {
@@ -13,6 +14,10 @@ function App() {
   };
 
   const Read = () => {
+    if (!file) {
+      toast.error("Please select a file to summarize");
+      return;
+    }
     setLoading(true);
     pdfToText(file)
       .then((data) => {
@@ -32,21 +37,22 @@ function App() {
 
   return (
     <div>
-      <div
-        className="file-upload"
-        style={{
-          border: "1px solid #ccc",
-          padding: "10px",
-          borderRadius: "5px",
-        }}
-      >
-        <input type="file" onChange={HandleFile}></input>
-      </div>
-      <div className="buttons">
-        <button disabled={loading} onClick={Read}>
-          {loading ? "Loading..." : "Summarize"}
-        </button>
-        <button>Ask Questions</button>
+      <ToastContainer position="top-center" autoClose={2000} hideProgressBar />
+      <div className="main-card">
+        {" "}
+        <div className="file-upload">
+          <label htmlFor="file-upload" className="upload-label">
+            {file ? file.name : " Upload File"}
+          </label>
+          <input id="file-upload" type="file" onChange={HandleFile} />
+        </div>
+        <div className="buttons">
+          <button disabled={loading} onClick={Read}>
+            {loading ? <div className="spinner"></div> : "Summarize"}
+          </button>
+
+          <button>Ask Questions</button>
+        </div>
       </div>
 
       {response && (

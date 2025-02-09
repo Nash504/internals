@@ -1,63 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
 #root {
-  max-width: 1280px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 1000;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.file-upload {
+  position: relative;
+  margin: 1rem auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.upload-label {
+  display: inline-block;
+  background-color: black;
+  border: 2px solid #ceff48;
+  color: #ceff48;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-label:hover {
+  box-shadow: 0 0 6px 2px #ceff48;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: black;
+  border: 2px solid #ceff48;
+  color: #ceff48;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 6px 2px #ceff48;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .card {
   background-color: #364246;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
-  width: 80%;
-  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
   margin: 20px auto;
+  color: #ffffff;
+  line-height: 1.6;
+  font-size: 18px;
 }
 
 .card p {
-  color: #ffffff;
-  font-size: 16px;
+  margin: 0;
 }
 
 .card b {
   font-weight: bold;
-  color: #ffffff;
 }
-button {
-  margin-top: 1rem;
-  background-color: black;
-  border: 2px solid #ceff48;
-  color: #ceff48;
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #ceff48;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
 }
-button:hover {
-  box-shadow: 0 0 6px 2px #ceff48;
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
-.buttons {
-  display: flex;
-  justify-content: space-around;
-  gap: 8px;
-  flex-direction: row;
-}
-.file-upload {
-  margin-top: 1rem;
-  background-color: black;
-  border: 2px solid #ceff48;
-  color: #ceff48;
+.main-card {
+  background-color: black; /* Dark background color */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  border: 1px solid #ceff48; /* Slight border for contrast */
+  width: 85%;
+  max-width: 600px; /* Limit width on large screens */
+  margin: 40px auto; /* Center the card with top/bottom margin */
+  color: #ffffff; /* White text color for contrast */
+  text-align: center; /* Center-align text and elements */
+  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
 }
