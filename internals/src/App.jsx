@@ -202,7 +202,16 @@ function App() {
           style={{ backgroundColor: "white", color: "#374151" }}
         >
           <h2 style={{ color: "#1a8754", marginBottom: "15px" }}>Summary</h2>
-          <p style={{ color: "#374151" }}>{response}</p>
+          <p
+            style={{
+              backgroundColor: "#d1fae5",
+              color: "#1a8754",
+              borderRadius: "8px",
+              padding: "15px",
+            }}
+          >
+            {response}
+          </p>
         </div>
       )}
 
