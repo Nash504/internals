@@ -5,7 +5,6 @@ import "./App.css";
 
 function App() {
   const [file, setFile] = useState(null);
-  const [, setContent] = useState(null);
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null); // State to store the response from Gemini
 
@@ -17,7 +16,6 @@ function App() {
     setLoading(true);
     pdfToText(file)
       .then((data) => {
-        setContent(data); // Store the content of the PDF
         return GetResponse(data); // Pass the content to GetResponse
       })
       .then((responseText) => {
@@ -44,16 +42,20 @@ function App() {
       >
         <input type="file" onChange={HandleFile}></input>
       </div>
-      <button disabled={loading} onClick={Read}>
-        {loading ? "Loading..." : "Summarize"}
-      </button>
-      <div className="card">
-        {response && (
+      <div className="buttons">
+        <button disabled={loading} onClick={Read}>
+          {loading ? "Loading..." : "Summarize"}
+        </button>
+        <button>Ask Questions</button>
+      </div>
+
+      {response && (
+        <div className="card">
           <p>
             Summary: <b>{response}</b>
           </p>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

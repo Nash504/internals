@@ -8,7 +8,7 @@ const GetResponse = async (inputValue) => {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
     const result = await model.generateContent(
       inputValue +
-        "summarize the content and structure it in a digestable format"
+        "summarize the content in a fewlines , use \n to make it formatted"
     );
     const response = result.response;
     const text = await response.text(); // `await` here to ensure we resolve the promise

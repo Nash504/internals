@@ -49,6 +49,12 @@ button {
 button:hover {
   box-shadow: 0 0 6px 2px #ceff48;
 }
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+  flex-direction: row;
+}
 .file-upload {
   margin-top: 1rem;
   background-color: black;
