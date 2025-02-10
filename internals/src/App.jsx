@@ -138,7 +138,7 @@ function App() {
       </div>
 
       {response && (
-        <div className="card">
+        <div className=" summary-card">
           <h2 className="card-header">Summary</h2>
           <p className="card-body">{response}</p>
         </div>
