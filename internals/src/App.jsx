@@ -46,7 +46,7 @@ function App() {
       const data = await pdfToText(file);
       const summaryResponse = await GetResponse(data);
       setResponse(summaryResponse);
-      const cards = generateFlashcards(data);
+      const cards = generateFlashcards(summaryResponse);
       setFlashcards(cards);
       setShowFlashcards(true);
       toast.success("Document processed successfully!");
@@ -204,8 +204,8 @@ function App() {
           <h2 style={{ color: "#1a8754", marginBottom: "15px" }}>Summary</h2>
           <p
             style={{
-              backgroundColor: "#d1fae5",
-              color: "#1a8754",
+              backgroundColor: "#f0fff4",
+              color: "black",
               borderRadius: "8px",
               padding: "15px",
             }}
@@ -229,7 +229,7 @@ function App() {
               borderRadius: "8px",
               marginBottom: "15px",
               transition: "all 0.3s ease",
-              color: "#374151",
+              color: "black",
             }}
           >
             <p>

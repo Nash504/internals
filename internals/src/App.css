@@ -49,10 +49,10 @@ button {
   cursor: pointer;
   font-size: 16px;
   transition: all 0.3s ease;
+  font-weight: bold;
 }
 
 button:hover {
-  box-shadow: 0 0 6px 2px #ceff48;
   transform: translateY(-2px);
 }
 
