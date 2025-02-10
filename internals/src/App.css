@@ -1,12 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 1000;
+}
+
 #root {
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  font-family: "Poppins", Arial, sans-serif;
-  font-weight: 1000;
 }
 
 .file-upload {
@@ -14,19 +17,25 @@
   margin: 1rem auto;
 }
 
-.upload-label {
-  display: inline-block;
+.upload-label,
+button {
+  padding: 10px 20px;
   background-color: black;
   border: 2px solid #ceff48;
   color: #ceff48;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
   transition: all 0.3s ease;
 }
 
-.upload-label:hover {
+.upload-label:hover,
+button:hover {
   box-shadow: 0 0 6px 2px #ceff48;
+}
+
+.upload-label {
+  display: inline-block;
 }
 
 .file-upload input[type="file"] {
@@ -40,47 +49,70 @@
   margin-top: 1.5rem;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: black;
-  border: 2px solid #ceff48;
-  color: #ceff48;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  font-weight: bold;
-}
-
-button:hover {
-  transform: translateY(-2px);
-}
-
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.card {
-  background-color: #364246;
-  padding: 20px;
+/* Shared card styles */
+.card,
+.main-card,
+.summary-card,
+.flashcard {
   border-radius: 10px;
+  padding: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  width: 90%;
   margin: 20px auto;
-  color: #ffffff;
+  width: 90%;
+  border: 2px solid #d1fae5; /* Complementary border color */
+}
+
+/* Summary card specific styles */
+.summary-card {
+  background-color: #f9fafb;
+  color: #1a202c;
+  font-size: 1em;
+  max-width: 800px;
   line-height: 1.6;
-  font-size: 18px;
+  max-height: 300px; /* Limit height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
-.card p {
-  margin: 0;
+.summary-card h2 {
+  color: #1a8754;
+  font-size: 1.5em;
+  margin-bottom: 16px;
 }
 
-.card b {
-  font-weight: bold;
+.summary-card p {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  color: #374151;
+  border: 1px solid #d1fae5;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
+/* Flashcard specific styles */
+.flashcard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 4px solid #d1fae5;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.flashcard-flipped {
+  background-color: #f0fff4;
+}
+
+/* Spinner styles */
 .spinner {
   border: 4px solid rgba(255, 255, 255, 0.3);
   border-top: 4px solid #ceff48;
@@ -96,16 +128,11 @@ button:disabled {
     transform: rotate(360deg);
   }
 }
-.main-card {
-  background-color: black; /* Dark background color */
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-  border: 1px solid #ceff48; /* Slight border for contrast */
-  width: 85%;
-  max-width: 600px; /* Limit width on large screens */
-  margin: 40px auto; /* Center the card with top/bottom margin */
-  color: #ffffff; /* White text color for contrast */
-  text-align: center; /* Center-align text and elements */
-  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+.summary-scrollable {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f9fafb;
+  border: 1px solid #d1fae5;
+  border-radius: 8px;
 }

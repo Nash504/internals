@@ -73,29 +73,20 @@ function App() {
   return (
     <div>
       <ToastContainer position="top-center" autoClose={2000} hideProgressBar />
-      <div
-        className="main-card"
-        style={{ backgroundColor: "white", borderColor: "#1a8754" }}
-      >
-        <h1 style={{ color: "#1a8754", marginBottom: "20px" }}>
-          NoteVault Flash
-        </h1>
+
+      <div className="card">
+        <h1 className="card-header">NoteVault Flash</h1>
 
         {file && (
-          <div
-            style={{
-              backgroundColor: "#f0fff4",
-              padding: "20px",
-              borderRadius: "10px",
-              marginBottom: "20px",
-            }}
-          >
+          <div className="card-body">
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
                 gap: "10px",
                 marginBottom: "15px",
+
+                padding: "10px",
               }}
             >
               <div
@@ -113,54 +104,19 @@ function App() {
                 ✓
               </div>
               <div>
-                <h3 style={{ color: "#1a8754", margin: 0 }}>
+                <h3
+                  className="card-header"
+                  style={{ justifycontent: "center", margin: 0 }}
+                >
                   File Uploaded Successfully
                 </h3>
-                <p style={{ color: "#1a8754", margin: "5px 0 0 0" }}>
-                  Document uploaded and ready for processing
-                </p>
-              </div>
-            </div>
-
-            <div
-              style={{
-                backgroundColor: "#ebfef0",
-                padding: "15px",
-                borderRadius: "8px",
-              }}
-            >
-              <div
-                style={{
-                  width: "100%",
-                  height: "8px",
-                  backgroundColor: "#d1fae5",
-                  borderRadius: "4px",
-                  marginTop: "10px",
-                }}
-              >
-                <div
-                  style={{
-                    height: "100%",
-                    backgroundColor: "#1a8754",
-                    borderRadius: "4px",
-                    transition: "width 0.5s ease",
-                  }}
-                />
               </div>
             </div>
           </div>
         )}
 
         <div className="file-upload">
-          <label
-            htmlFor="file-upload"
-            className="upload-label"
-            style={{
-              backgroundColor: "#1a8754",
-              borderColor: "#1a8754",
-              color: "white",
-            }}
-          >
+          <label htmlFor="file-upload" className="upload-label">
             {file ? file.name : "Upload PDF"}
           </label>
           <input
@@ -172,52 +128,25 @@ function App() {
         </div>
 
         <div className="buttons">
-          <button
-            disabled={loading}
-            onClick={Read}
-            style={{
-              backgroundColor: "#1a8754",
-              borderColor: "#1a8754",
-              color: "white",
-            }}
-          >
+          <button disabled={loading} onClick={Read}>
             {loading ? <div className="spinner"></div> : "Summarize"}
           </button>
-          <button
-            onClick={() => setShowFlashcards(!showFlashcards)}
-            style={{
-              backgroundColor: "#1a8754",
-              borderColor: "#1a8754",
-              color: "white",
-            }}
-          >
+          <button onClick={() => setShowFlashcards(!showFlashcards)}>
             {showFlashcards ? "Hide Flashcards" : "Show Flashcards"}
           </button>
         </div>
       </div>
 
       {response && (
-        <div
-          className="card"
-          style={{ backgroundColor: "white", color: "#374151" }}
-        >
-          <h2 style={{ color: "#1a8754", marginBottom: "15px" }}>Summary</h2>
-          <p
-            style={{
-              backgroundColor: "#f0fff4",
-              color: "black",
-              borderRadius: "8px",
-              padding: "15px",
-            }}
-          >
-            {response}
-          </p>
+        <div className="card">
+          <h2 className="card-header">Summary</h2>
+          <p className="card-body">{response}</p>
         </div>
       )}
 
       {showFlashcards && flashcards.length > 0 && (
-        <div className="card" style={{ backgroundColor: "white" }}>
-          <h2 style={{ color: "#1a8754", marginBottom: "15px" }}>Flashcards</h2>
+        <div className="card">
+          <h2 className="card-header">Flashcards</h2>
           <div
             onClick={() => setIsFlipped(!isFlipped)}
             style={{
@@ -225,7 +154,7 @@ function App() {
               minHeight: "150px",
               padding: "20px",
               backgroundColor: isFlipped ? "#f0fff4" : "#ffffff",
-              border: "1px solid #d1fae5",
+              border: "4px solid #d1fae5",
               borderRadius: "8px",
               marginBottom: "15px",
               transition: "all 0.3s ease",
@@ -240,29 +169,11 @@ function App() {
           </div>
 
           <div className="buttons">
-            <button
-              onClick={previousCard}
-              style={{
-                backgroundColor: "#1a8754",
-                borderColor: "#1a8754",
-                color: "white",
-              }}
-            >
-              Previous
-            </button>
-            <button
-              onClick={nextCard}
-              style={{
-                backgroundColor: "#1a8754",
-                borderColor: "#1a8754",
-                color: "white",
-              }}
-            >
-              Next
-            </button>
+            <button onClick={previousCard}>Previous</button>
+            <button onClick={nextCard}>Next</button>
           </div>
 
-          <p style={{ color: "#1a8754", marginTop: "10px", fontSize: "14px" }}>
+          <p className="card-footer">
             Card {currentCard + 1} of {flashcards.length}
           </p>
         </div>
